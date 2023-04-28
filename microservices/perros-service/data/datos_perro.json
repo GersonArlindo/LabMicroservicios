@@ -1,0 +1,530 @@
+[
+  {
+    "Id": 1,
+    "raza": "Dalmatian",
+    "peso": 9.95,
+    "nombre_perro": "Pepito",
+    "nombre_dueno": "Juan Perez",
+    "pais_dueno": "Mexico"
+  },
+  {
+    "Id": 2,
+    "raza": "Beagle",
+    "peso": 31.34,
+    "nombre_perro": "Fido",
+    "nombre_dueno": "Emily Smith",
+    "pais_dueno": "Estados Unidos"
+  },
+  {
+    "Id": 3,
+    "raza": "Poodle",
+    "peso": 15.42,
+    "nombre_perro": "Mimi",
+    "nombre_dueno": "Sophie Dupont",
+    "pais_dueno": "Francia"
+  },
+  {
+    "Id": 4,
+    "raza": "Chihuahua",
+    "peso": 6.48,
+    "nombre_perro": "Lucky",
+    "nombre_dueno": "Maria Garcia",
+    "pais_dueno": "Mexico"
+  },
+  {
+    "Id": 5,
+    "raza": "Shih Tzu",
+    "peso": 39.92,
+    "nombre_perro": "Lola",
+    "nombre_dueno": "Chen Wei",
+    "pais_dueno": "China"
+  },
+  {
+    "Id": 6,
+    "raza": "Golden Retriever",
+    "peso": 45.08,
+    "nombre_perro": "Bruno",
+    "nombre_dueno": "Jack Johnson",
+    "pais_dueno": "Australia"
+  },
+  {
+    "Id": 7,
+    "raza": "Boxer",
+    "peso": 3.31,
+    "nombre_perro": "Rocky",
+    "nombre_dueno": "Alexis Dubois",
+    "pais_dueno": "Francia"
+  },
+  {
+    "Id": 8,
+    "raza": "Labrador Retriever",
+    "peso": 28.87,
+    "nombre_perro": "Max",
+    "nombre_dueno": "John Smith",
+    "pais_dueno": "Estados Unidos"
+  },
+  {
+    "Id": 9,
+    "raza": "German Shepherd",
+    "peso": 40.83,
+    "nombre_perro": "Zeus",
+    "nombre_dueno": "Hans Müller",
+    "pais_dueno": "Alemania"
+  },
+  {
+    "Id": 10,
+    "raza": "Bulldog",
+    "peso": 37.31,
+    "nombre_perro": "Molly",
+    "nombre_dueno": "Emma Williams",
+    "pais_dueno": "Reino Unido"
+  },
+  {
+    "Id": 11,
+    "raza": "Pug",
+    "peso": 11.05,
+    "nombre_perro": "Milo",
+    "nombre_dueno": "Jessica Davis",
+    "pais_dueno": "Estados Unidos"
+  },
+  {
+    "Id": 12,
+    "raza": "Siberian Husky",
+    "peso": 26.79,
+    "nombre_perro": "Nina",
+    "nombre_dueno": "Ivan Petrov",
+    "pais_dueno": "Rusia"
+  },
+  {
+    "Id": 13,
+    "raza": "Great Dane",
+    "peso": 68.91,
+    "nombre_perro": "Atlas",
+    "nombre_dueno": "Maxime Dubois",
+    "pais_dueno": "Francia"
+  },
+  {
+    "Id": 14,
+    "raza": "Rottweiler",
+    "peso": 51.24,
+    "nombre_perro": "Zeke",
+    "nombre_dueno": "Samantha Thompson",
+    "pais_origen_dueno": "Estados Unidos"
+  },
+  {
+    "Id": 15,
+    "raza": "Bernese Mountain Dog",
+    "peso": 58.2,
+    "nombre_perro": "Benny",
+    "nombre_dueno": "Federico Rossi",
+    "pais_origen_dueno": "Italia"
+  },
+  {
+    "Id": 16,
+    "raza": "Doberman Pinscher",
+    "peso": 32.67,
+    "nombre_perro": "Diesel",
+    "nombre_dueno": "Miguel Hernandez",
+    "pais_origen_dueno": "México"
+  },
+  {
+    "Id": 17,
+    "raza": "French Bulldog",
+    "peso": 11.68,
+    "nombre_perro": "Gus",
+    "nombre_dueno": "Sophie Dubois",
+    "pais_origen_dueno": "Francia"
+  },
+  {
+    "Id": 18,
+    "raza": "Alaskan Malamute",
+    "peso": 41.84,
+    "nombre_perro": "Toby",
+    "nombre_dueno": "Erik Johansson",
+    "pais_origen_dueno": "Suecia"
+  },
+  {
+    "Id": 19,
+    "raza": "Border Collie",
+    "peso": 19.31,
+    "nombre_perro": "Cody",
+    "nombre_dueno": "Emma Brown",
+    "pais_origen_dueno": "Reino Unido"
+  },
+  {
+    "Id": 20,
+    "raza": "Yorkshire Terrier",
+    "peso": 3.23,
+    "nombre_perro": "Buddy",
+    "nombre_dueno": "Takashi Yamamoto",
+    "pais_origen_dueno": "Japón"
+  },
+  {
+    "Id": 21,
+    "raza": "Dachshund",
+    "peso": 7.62,
+    "nombre_perro": "Oscar",
+    "nombre_dueno": "Oliver Schmidt",
+    "pais_origen_dueno": "Alemania"
+  },
+  {
+    "Id": 22,
+    "raza": "Australian Shepherd",
+    "peso": 33.77,
+    "nombre_perro": "Luna",
+    "nombre_dueno": "Juan Perez",
+    "pais_origen_dueno": "Argentina"
+  },
+  {
+    "Id": 23,
+    "raza": "Jack Russell Terrier",
+    "peso": 5.95,
+    "nombre_perro": "Rocky",
+    "nombre_dueno": "Emily Wong",
+    "pais_origen_dueno": "Hong Kong"
+  },
+  {
+    "Id": 24,
+    "raza": "Dalmatian",
+    "peso": 11.02,
+    "nombre_perro": "Spot",
+    "nombre_dueno": "Luisa Hernandez",
+    "pais_origen": "Mexico"
+  },
+  {
+    "Id": 25,
+    "raza": "Dalmatian",
+    "peso": 13.87,
+    "nombre_perro": "Lucky",
+    "nombre_dueno": "Emily Smith",
+    "pais_origen": "Estados Unidos"
+  },
+  {
+    "Id": 26,
+    "raza": "Dalmatian",
+    "peso": 10.5,
+    "nombre_perro": "Buddy",
+    "nombre_dueno": "Pedro Rodriguez",
+    "pais_origen": "España"
+  },
+  {
+    "Id": 27,
+    "raza": "Beagle",
+    "peso": 17.6,
+    "nombre_perro": "Charlie",
+    "nombre_dueno": "Thomas Wagner",
+    "pais_origen": "Alemania"
+  },
+  {
+    "Id": 28,
+    "raza": "Beagle",
+    "peso": 19.2,
+    "nombre_perro": "Daisy",
+    "nombre_dueno": "Emma Jones",
+    "pais_origen": "Reino Unido"
+  },
+  {
+    "Id": 29,
+    "raza": "Beagle",
+    "peso": 22.5,
+    "nombre_perro": "Max",
+    "nombre_dueno": "Marta Sánchez",
+    "pais_origen": "Argentina"
+  },
+  {
+    "Id": 30,
+    "raza": "Poodle",
+    "peso": 4.25,
+    "nombre_perro": "Luna",
+    "nombre_dueno": "Julia Fernandez",
+    "pais_origen": "Colombia"
+  },
+  {
+    "Id": 31,
+    "raza": "Poodle",
+    "peso": 6.8,
+    "nombre_perro": "Coco",
+    "nombre_dueno": "Hiroshi Nakamura",
+    "pais_origen": "Japón"
+  },
+  {
+    "Id": 32,
+    "raza": "Poodle",
+    "peso": 5.6,
+    "nombre_perro": "Mimi",
+    "nombre_dueno": "Sophie Martin",
+    "pais_origen": "Francia"
+  },
+  {
+    "Id": 33,
+    "raza": "Dalmatian",
+    "peso": 14.73,
+    "nombre_perro": "Rocky",
+    "nombre_dueno": "David Perez",
+    "pais_origen": "Chile"
+  },
+  {
+    "Id": 34,
+    "raza": "Dalmatian",
+    "peso": 20.45,
+    "nombre_perro": "Max",
+    "nombre_dueno": "Emma Smith",
+    "pais_origen_dueno": "Reino Unido"
+  },
+  {
+    "Id": 35,
+    "raza": "Dalmatian",
+    "peso": 15.68,
+    "nombre_perro": "Lola",
+    "nombre_dueno": "Sophia Garcia",
+    "pais_origen_dueno": "España"
+  },
+  {
+    "Id": 36,
+    "raza": "Dalmatian",
+    "peso": 18.12,
+    "nombre_perro": "Rocky",
+    "nombre_dueno": "Liam Kim",
+    "pais_origen_dueno": "Corea del Sur"
+  },
+  {
+    "Id": 37,
+    "raza": "Dalmatian",
+    "peso": 21.05,
+    "nombre_perro": "Milo",
+    "nombre_dueno": "Ethan Chen",
+    "pais_origen_dueno": "China"
+  },
+  {
+    "Id": 38,
+    "raza": "Dalmatian",
+    "peso": 17.39,
+    "nombre_perro": "Nina",
+    "nombre_dueno": "Alessandro Rossi",
+    "pais_origen_dueno": "Italia"
+  },
+  {
+    "Id": 39,
+    "raza": "Dalmatian",
+    "peso": 23.07,
+    "nombre_perro": "Zeus",
+    "nombre_dueno": "Olivia Torres",
+    "pais_origen_dueno": "México"
+  },
+  {
+    "Id": 40,
+    "raza": "Dalmatian",
+    "peso": 19.91,
+    "nombre_perro": "Molly",
+    "nombre_dueno": "Emily Nguyen",
+    "pais_origen_dueno": "Vietnam"
+  },
+  {
+    "Id": 41,
+    "raza": "Dalmatian",
+    "peso": 22.34,
+    "nombre_perro": "Mimi",
+    "nombre_dueno": "Thomas Müller",
+    "pais_origen_dueno": "Alemania"
+  },
+  {
+    "Id": 42,
+    "raza": "Dalmatian",
+    "peso": 16.57,
+    "nombre_perro": "Benny",
+    "nombre_dueno": "Sofia Medina",
+    "pais_origen_dueno": "Argentina"
+  },
+  {
+    "Id": 43,
+    "raza": "Beagle",
+    "peso": 10.02,
+    "nombre_perro": "Fido",
+    "nombre_dueno": "Sophie Lee",
+    "pais_origen_dueno": "Corea del Sur"
+  },
+  {
+    "Id": 44,
+    "raza": "Beagle",
+    "peso": 12.45,
+    "nombre_perro": "Oscar",
+    "nombre_dueno": "Julia Fernández",
+    "pais_origen_dueno": "España"
+  },
+  {
+    "Id": 45,
+    "raza": "Beagle",
+    "peso": 9.77,
+    "nombre_perro": "Pepito",
+    "nombre_dueno": "Lucas Silva",
+    "pais_origen_dueno": "Brasil"
+  },
+  {
+    "Id": 46,
+    "raza": "Beagle",
+    "peso": 11.33,
+    "nombre_perro": "Lucky",
+    "nombre_dueno": "Hannah Brown",
+    "pais_origen_dueno": "Estados Unidos"
+  },
+  {
+    "Id": 48,
+    "raza": "Poodle",
+    "peso": 12.1,
+    "nombre_perro": "Coco",
+    "nombre_dueno": "Luisa",
+    "pais_origen_dueno": "México"
+  },
+  {
+    "Id": 49,
+    "raza": "Golden Retriever",
+    "peso": 30.5,
+    "nombre_perro": "Buddy",
+    "nombre_dueno": "John",
+    "pais_origen_dueno": "Estados Unidos"
+  },
+  {
+    "Id": 50,
+    "raza": "Labrador Retriever",
+    "peso": 27.8,
+    "nombre_perro": "Duke",
+    "nombre_dueno": "Sara",
+    "pais_origen_dueno": "Canadá"
+  },
+  {
+    "Id": 51,
+    "raza": "Chihuahua",
+    "peso": 3.2,
+    "nombre_perro": "Taco",
+    "nombre_dueno": "Maria",
+    "pais_origen_dueno": "México"
+  },
+  {
+    "Id": 52,
+    "raza": "Shih Tzu",
+    "peso": 5.9,
+    "nombre_perro": "Luna",
+    "nombre_dueno": "Laura",
+    "pais_origen_dueno": "España"
+  },
+  {
+    "Id": 53,
+    "raza": "Bulldog",
+    "peso": 25.6,
+    "nombre_perro": "Rocky",
+    "nombre_dueno": "Andrew",
+    "pais_origen_dueno": "Australia"
+  },
+  {
+    "Id": 54,
+    "raza": "German Shepherd",
+    "peso": 38.2,
+    "nombre_perro": "Max",
+    "nombre_dueno": "Hiroki",
+    "pais_origen_dueno": "Japón"
+  },
+  {
+    "Id": 55,
+    "raza": "Beagle",
+    "peso": 14.9,
+    "nombre_perro": "Charlie",
+    "nombre_dueno": "Emma",
+    "pais_origen_dueno": "Reino Unido"
+  },
+  {
+    "Id": 56,
+    "raza": "Dalmatian",
+    "peso": 20.6,
+    "nombre_perro": "Lucky",
+    "nombre_dueno": "Natalie",
+    "pais_origen_dueno": "Estados Unidos"
+  },
+  {
+    "Id": 57,
+    "raza": "Poodle",
+    "peso": 7.5,
+    "nombre_perro": "Sophie",
+    "nombre_dueno": "Jorge",
+    "pais_origen_dueno": "México"
+  },
+  {
+    "Id": 58,
+    "raza": "Pug",
+    "peso": 12.15,
+    "nombre_perro": "Buddy",
+    "nombre_dueño": "Maria",
+    "pais_dueño": "Mexico"
+  },
+  {
+    "Id": 59,
+    "raza": "Chihuahua",
+    "peso": 5.82,
+    "nombre_perro": "Lola",
+    "nombre_dueño": "Luis",
+    "pais_dueño": "Colombia"
+  },
+  {
+    "Id": 60,
+    "raza": "Labrador Retriever",
+    "peso": 30.75,
+    "nombre_perro": "Max",
+    "nombre_dueño": "Emma",
+    "pais_dueño": "Reino Unido"
+  },
+  {
+    "Id": 61,
+    "raza": "Golden Retriever",
+    "peso": 40.01,
+    "nombre_perro": "Bruno",
+    "nombre_dueño": "Eduardo",
+    "pais_dueño": "Brasil"
+  },
+  {
+    "Id": 62,
+    "raza": "Poodle",
+    "peso": 13.24,
+    "nombre_perro": "Mimi",
+    "nombre_dueño": "Sophie",
+    "pais_dueño": "Francia"
+  },
+  {
+    "Id": 63,
+    "raza": "Bulldog",
+    "peso": 35.48,
+    "nombre_perro": "Molly",
+    "nombre_dueño": "Isabella",
+    "pais_dueño": "Estados Unidos"
+  },
+  {
+    "Id": 64,
+    "raza": "Dalmatian",
+    "peso": 10.89,
+    "nombre_perro": "Pepito",
+    "nombre_dueño": "Pedro",
+    "pais_dueño": "España"
+  },
+  {
+    "Id": 65,
+    "raza": "Siberian Husky",
+    "peso": 28.18,
+    "nombre_perro": "Nina",
+    "nombre_dueño": "Hiroshi",
+    "pais_dueño": "Japón"
+  },
+  {
+    "Id": 66,
+    "raza": "Rottweiler",
+    "peso": 49.73,
+    "nombre_perro": "Zeke",
+    "nombre_dueño": "Lena",
+    "pais_dueño": "Alemania"
+  },
+  {
+    "Id": 67,
+    "raza": "Boxer",
+    "peso": 4.92,
+    "nombre_perro": "Rocky",
+    "nombre_dueño": "Miguel",
+    "pais_dueño": "México"
+  }
+]

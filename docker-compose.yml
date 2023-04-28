@@ -1,0 +1,22 @@
+version: "1"
+
+services:
+  premios:
+    build: ./microservices/premios-service
+
+  perros:
+    build: ./microservices/perros-service
+  
+  razas:
+    build: ./microservices/razas-service
+
+  nginx:
+    image: nginx:latest
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - premios
+      - perros
+      - razas

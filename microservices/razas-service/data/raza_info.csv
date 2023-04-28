@@ -1,0 +1,24 @@
+id,raza,color_de_pelo,tamanio_de_pelo,pais_de_origen,expectativa_de_vida,tipo,acreditado
+1,Dalmatian,Blanco y Negro,Corto,Croacia,10,trabajo,true
+2,Beagle,Tricolor (Negro; marrón y blanco),Corto,Inglaterra,15,compania,-
+3,Poodle,Blanco; Negro; Café; Gris; Albaricoque; Rojo; Azul; Plateado; Crema,Largo,Francia,20,compania,true
+4,Chihuahua,Negro; Blanco; Chocolate; Marrón; Crema; Canela; Dorado; Gris,Corto,México,10,compania,true
+5,Shih Tzu,Negro; Blanco; Marrón; Gris; Dorado; Rojo,Largo,China,9,guardian,false
+6,Golden Retriever,Dorado; Crema,Largo,Reino Unido,8,caza,false
+7,Boxer,Leonado; Leonado atigrado,Corto,Alemania,8,-,-
+8,Labrador Retriever,Negro; Chocolate; Amarillo,Corto,Canadá,11,terapia,false
+9,German Shepherd,Negro y marrón,Largo,Alemania,16,trabajo,true
+10,Bulldog,Blanco; leonado; atigrado,Corto,Reino Unido,11,terapia,true
+11,Pug,Negro; Plata; Leopardo; Albaricoque; León Negro,Corto,China,9,compania,true
+12,Siberian Husky,Negro y blanco; Gris y blanco; Rojo y blanco; Sable y blanco; Blanco,Largo,Rusia,14,caza,false
+13,Great Dane,Negro; Leopardo; Azul; Arlequín; Atigrado; Mantle; Merle; Fawn,Corto,Alemania,14,-,true
+14,Rottweiler,Negro y marrón,Corto,Alemania,14,compania,false
+15,Bernese Mountain Dog,Negro; Blanco y marrón,Largo,Suiza,11,competencia,-
+16,Doberman Pinscher,Negro y marrón; Rojo y marrón; Azul y marrón,Corto,Alemania,20,caza,true
+17,French Bulldog,Blanco y negro; leonado y blanco; crema y blanco; fawn,Corto,Francia,12,caza,false
+18,Alaskan Malamute,Negro y blanco; Gris y blanco; Rojo y blanco; Sable y blanco; Blanco,Largo,Estados Unidos,11,caza,false
+19,Border Collie,Negro y blanco; Rojo y blanco; Azul y blanco; Tricolor (Negro; blanco y marrón),Largo,Reino Unido,14,competencia,true
+20,Yorkshire Terrier,Azul acero y dorado,Largo,Inglaterra,13,caza,-
+21,Dachshund,Negro y marrón; Rojo; Marrón; Crema; Leopardo,Corto,Alemania,14,caza,true
+22,Australian Shepherd,Negro tricolor; Azul mirlo; Azul merle; Rojo tricolor; Rojo merle; Rojo sólido,Largo,Estados Unidos,13,caza,false
+23,Jack Russell Terrier,Blanco con manchas negras o marrones,Corto,Inglaterra,14,competencia,false
