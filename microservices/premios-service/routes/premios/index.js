@@ -34,7 +34,7 @@ router.get("/:id", (req, res) => {
       
       // Hacer la solicitud a la API de perros usando el id_campeon
       axios
-        .get(`http://localhost:4000/api/v2/perros/${id_campeon}`)
+        .get(`http://localhost:4000/api/v2/perros/ById/${id_campeon}`)
         .then(response => {
           // Combinando
           const data = {

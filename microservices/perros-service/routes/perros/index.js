@@ -21,6 +21,40 @@ router.get("/", (req, res) => {
 });
 
 //Ejercicio 1
+
+router.get("/:pais/:condicion/:valor", (req, res) => {
+  const { pais, condicion, valor } = req.params;
+  const filteredData = data.filter((perro) => {
+    if (perro.pais_dueno !== pais) return false;
+    switch (condicion) {
+      case ">":
+        return perro.peso > valor;
+      case ">=":
+        return perro.peso >= valor;
+      case "<":
+        return perro.peso < valor;
+      case "<=":
+        return perro.peso <= valor;
+      case "=":
+        return perro.peso == valor;
+      default:
+        return false;
+    }
+  });
+  const response = {
+    service: "perros",
+    architecture: "microservices",
+    length: filteredData.length,
+    data: filteredData,
+  };
+  logger(`Get perros data filtrada por pais=${pais} y peso ${condicion} ${valor}`);
+  return res.send(response);
+});
+
+
+
+
+
 // router.get("/ByPaisPeso/:pais/:peso", (req, res) => {
 //   const pais = req.params.pais;
 //   const peso = req.params.peso;
@@ -63,7 +97,7 @@ router.get("/", (req, res) => {
 
 
 //GET PERRO BY ID
-router.get("/:id", (req, res) => {
+router.get("/ById/:id", (req, res) => {
   const id = req.params.id;
   const perro = data.find((p) => p.Id == id);
   if (!perro) {
