@@ -75,7 +75,7 @@ router.get("/:id", (req, res) => {
 
 
 
-// //Parte ej 4
+// Ej 4
 
 function generarConsultaSQL(puntaje) {
   const cantidadAsteriscos = puntaje / 10; // Dividimos por 10 para obtener la cantidad de asteriscos que se están buscando
@@ -109,7 +109,15 @@ router.get("/puntaje/:puntaje", async (req, res) => {
         const pais = row.pais_competencia;
         const response = await fetch(`http://localhost:5000/api/v2/razas/razas-por-pais/${pais}`);
         const json = await response.json();
-        return { pais, razas: json };
+        const razas = json.map(({ raza }) => raza);
+        const perrosPorRaza = await Promise.all(
+          razas.map(async (raza) => {
+            const response = await fetch(`http://localhost:4000/api/v2/perros/perrosPorRaza/${raza}`);
+            const json = await response.json();
+            return { raza, perros: json };
+          })
+        );
+        return { pais, perrosPorRaza };
       })
     );
 
@@ -122,46 +130,12 @@ router.get("/puntaje/:puntaje", async (req, res) => {
 
 
 // function generarConsultaSQL(puntaje) {
-//   const cantidadAsteriscos = puntaje / 10;
-//   const asteriscos = "*".repeat(cantidadAsteriscos);
-//   return `SELECT pais_competencia FROM campeonatos WHERE puntaje LIKE '${asteriscos}'`;
-// }
-
-// router.get("/puntaje/:puntaje", (req, res) => {
-//   const puntaje = parseInt(req.params.puntaje);
-//   if (isNaN(puntaje) || puntaje < 10 || puntaje > 50 || puntaje % 10 !== 0) {
-//     res.status(400).send("El puntaje ingresado no es válido.");
-//     return;
-//   }
-
-//   const consultaSQL = generarConsultaSQL(puntaje);
-
-//   db.all(consultaSQL, (err, rows) => {
-//     if (err) {
-//       console.error(err.message);
-//       res.status(500).send("Error interno del servidor");
-//     } else {
-//       const paisesCompetencia = rows.map(row => row.pais_competencia);
-//       const pais = paisesCompetencia[0]; // Supongamos que solo tomamos el primer país de la lista
-
-//       axios.get(`http://localhost:5000/api/v2/razas/razas-por-pais/${pais}`)
-//         .then(response => res.json(response.data))
-//         .catch(error => {
-//           console.error(error);
-//           res.status(500).send("Error interno del servidor");
-//         });
-//     }
-//   });
-// });
-
-
-// function generarConsultaSQL(puntaje) {
 //   const cantidadAsteriscos = puntaje / 10; // Dividimos por 10 para obtener la cantidad de asteriscos que se están buscando
 //   const asteriscos = "*".repeat(cantidadAsteriscos); // Creamos una cadena de texto con la cantidad exacta de asteriscos
 //   return `SELECT pais_competencia FROM campeonatos WHERE puntaje LIKE '${asteriscos}'`;
 // }
 
-// router.get("/puntaje/:puntaje", (req, res) => {
+// router.get("/puntaje/:puntaje", async (req, res) => {
 //   const puntaje = parseInt(req.params.puntaje);
 //   if (isNaN(puntaje) || puntaje < 10 || puntaje > 50 || puntaje % 10 !== 0) {
 //     res.status(400).send("El puntaje ingresado no es válido.");
@@ -170,15 +144,35 @@ router.get("/puntaje/:puntaje", async (req, res) => {
 
 //   const consultaSQL = generarConsultaSQL(puntaje);
 
-//   db.all(consultaSQL, (err, rows) => {
-//     if (err) {
-//       console.error(err.message);
-//       res.status(500).send("Error interno del servidor");
-//     } else {
-//       res.json(rows);
-//     }
-//   });
+//   try {
+//     const rows = await new Promise((resolve, reject) => {
+//       db.all(consultaSQL, (err, rows) => {
+//         if (err) {
+//           console.error(err.message);
+//           reject("Error interno del servidor");
+//         } else {
+//           resolve(rows);
+//         }
+//       });
+//     });
+
+//     const razasPorPais = await Promise.all(
+//       rows.map(async (row) => {
+//         const pais = row.pais_competencia;
+//         const response = await fetch(`http://localhost:5000/api/v2/razas/razas-por-pais/${pais}`);
+//         const json = await response.json();
+//         return { pais, razas: json };
+//       })
+//     );
+
+//     res.json(razasPorPais);
+//   } catch (error) {
+//     console.error(error);
+//     res.status(500).send("Error interno del servidor");
+//   }
 // });
+
+
 
 
 

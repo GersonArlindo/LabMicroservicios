@@ -112,6 +112,23 @@ router.get("/ById/:id", (req, res) => {
   return res.send(response);
 });
 
+//GET PERROS BY RAZA
+router.get("/perrosPorRaza/:raza", (req, res) => {
+  const raza = req.params.raza;
+  const perros = data.filter((p) => p.raza === raza);
+  if (perros.length === 0) {
+    return res.status(404).send("Perros no encontrados");
+  }
+  const response = {
+    service: "perros",
+    architecture: "microservices",
+    data: perros,
+  };
+  logger(`Get perros con raza ${raza}`);
+  return res.send(response);
+});
+
+
 
 // Exportamos el router
 module.exports = router;
