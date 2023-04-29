@@ -18,6 +18,42 @@ router.get("/", (req, res) => {
   });
 }); 
 
+//Ejercicio 2
+
+router.get("/promedio-premios/:lugar", (req, res) => {
+  const lugar = req.params.lugar;
+  db.get("SELECT AVG(premio) as promedio_premio FROM campeonatos WHERE lugar = ?", [lugar], (err, row) => {
+    if (err) {
+      console.error(err.message);
+      res.status(500).send("Error interno del servidor");
+    } else {
+      res.json(row);
+    }
+  });
+});
+
+// router.get("/:lugar/promedio-premio", (req, res) => {
+//   const lugar = req.params.lugar;
+
+//   db.get(
+//     "SELECT AVG(premio) as promedioPremio FROM campeonatos WHERE lugar = ?",
+//     [lugar],
+//     (err, row) => {
+//       if (err) {
+//         console.error(err.message);
+//         res.status(500).send("Error interno del servidor");
+//       } else {
+//         if (row) {
+//           res.json(row);
+//         } else {
+//           res.status(404).send("No se encontraron campeonatos en ese lugar");
+//         }
+//       }
+//     }
+//   );
+// });
+
+
 //Ejercicio 3
 router.get("/:id", (req, res) => {
   const id = req.params.id;
