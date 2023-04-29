@@ -39,6 +39,35 @@ convertCSVToJSON(URL_CSV)
     console.error(error);
   });
 
+
+//EJ 4
+convertCSVToJSON(URL_CSV)
+  .then((json) => {
+    const data = JSON.parse(json); 
+    const countByType = data.reduce((count, raza) => {
+      const tipo = raza.tipo;
+      if (!count[tipo]) {
+        count[tipo] = 0;
+      }
+      count[tipo]++;
+      return count;
+    }, {});
+
+    const sortedTypes = Object.entries(countByType)
+      .sort((a, b) => b[1] - a[1])
+      .slice(0, 3)
+      .map(([tipo]) => tipo);
+
+    router.get("/tiposFrecuentes", (req, res) => {
+      logger("Get razas data");
+      return res.send(sortedTypes);
+    });
+  })
+  .catch((error) => {
+    console.error(error);
+  });
+
+
   // convertCSVToJSON(URL_CSV)
   // .then((json) => { 
   //   router.get("/razas-por-pais/:pais", (req, res) => {
