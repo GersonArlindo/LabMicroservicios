@@ -32,27 +32,6 @@ router.get("/promedio-premios/:lugar", (req, res) => {
   });
 });
 
-// router.get("/:lugar/promedio-premio", (req, res) => {
-//   const lugar = req.params.lugar;
-
-//   db.get(
-//     "SELECT AVG(premio) as promedioPremio FROM campeonatos WHERE lugar = ?",
-//     [lugar],
-//     (err, row) => {
-//       if (err) {
-//         console.error(err.message);
-//         res.status(500).send("Error interno del servidor");
-//       } else {
-//         if (row) {
-//           res.json(row);
-//         } else {
-//           res.status(404).send("No se encontraron campeonatos en ese lugar");
-//         }
-//       }
-//     }
-//   );
-// });
-
 
 //Ejercicio 3
 router.get("/:id", (req, res) => {
@@ -94,158 +73,101 @@ router.get("/:id", (req, res) => {
   });
 });
 
-//Ejercicio 4
-// router.get("/paises-por-puntaje/:puntaje", (req, res) => {
-//   const puntaje = req.params.puntaje;
-//   db.all("SELECT DISTINCT pais_competencia FROM campeonatos WHERE puntaje = ?", [puntaje], (err, rows) => {
-//     if (err) {
-//       console.error(err.message);
-//       res.status(500).send("Error interno del servidor");
-//     } else {
-//       res.json(rows);
-//     }
-//   });
-// });
 
 
-// router.get("/:id", (req, res) => {
-//   const id = req.params.id;
-//   const query = "SELECT * FROM campeonatos WHERE id = ?";
-//   db.get(query, [id], (err, row) => {
-//     if (err) {
-//       console.error(err.message);
-//       res.status(500).send("Error interno del servidor");
-//     } else if (!row) {
-//       res.status(404).send("Campeonato no encontrado");
-//     } else {
-//       res.json(row);
-//     }
-//   });
-// });
+// //Parte ej 4
 
-// router.get("/:id", (req, res) => {
-//   const id = parseInt(req.params.id);
-//   if (isNaN(id)) {
-//     res.status(400).send("El id ingresado no es válido.");
-//     return;
-//   }
-//   db.get("SELECT * FROM campeonatos WHERE id = ?", [id], (err, row) => {
-//     if (err) {
-//       console.error(err.message);
-//       res.status(500).send("Error interno del servidor");
-//       return;
-//     }
-//     if (!row) {
-//       res.status(404).send("El campeonato no existe.");
-//       return;
-//     }
-//     const idCampeon = row.id_campeon;
-//     axios
-//       .get(`http://localhost:4000/api/v2/perros/${idCampeon}`)
-//       .then((response) => {
-//         const perro = response.data.data;
-//         res.json({
-//           id: id,
-//           id_campeon: idCampeon,
-//           perro: perro,
-//         });
-//       })
-//       .catch((error) => {
-//         console.error(error);
-//         res.status(500).send("Error al obtener los detalles del perro.");
-//       });
-//   });
-// });
-
-
-
-//Parte ej 4
 function generarConsultaSQL(puntaje) {
   const cantidadAsteriscos = puntaje / 10; // Dividimos por 10 para obtener la cantidad de asteriscos que se están buscando
   const asteriscos = "*".repeat(cantidadAsteriscos); // Creamos una cadena de texto con la cantidad exacta de asteriscos
-  return `SELECT id_campeon FROM campeonatos WHERE puntaje LIKE '${asteriscos}'`;
+  return `SELECT pais_competencia FROM campeonatos WHERE puntaje LIKE '${asteriscos}'`;
 }
 
-router.get("/:puntaje", (req, res) => {
+router.get("/puntaje/:puntaje", async (req, res) => {
   const puntaje = parseInt(req.params.puntaje);
   if (isNaN(puntaje) || puntaje < 10 || puntaje > 50 || puntaje % 10 !== 0) {
     res.status(400).send("El puntaje ingresado no es válido.");
     return;
   }
+
   const consultaSQL = generarConsultaSQL(puntaje);
-  db.all(consultaSQL, (err, rows) => {
-    if (err) {
-      console.error(err.message);
-      res.status(500).send("Error interno del servidor");
-    } else {
-      const id_campeones = rows.map(row => row.id_campeon);
-      const perrosPromises = id_campeones.map(id_campeon => axios.get(`http://localhost:4000/api/v2/perros/${id_campeon}`));
-      Promise.all(perrosPromises)
-        .then(responses => {
-          const perrosData = responses.map(response => response.data);
-          const response = {
-            service: "premios",
-            architecture: "microservices",
-            puntaje: puntaje,
-            perrosData: perrosData,
-          };
-          res.json(response);
-        })
-        .catch(error => {
-          console.error(error);
-          res.status(500).send("Error al obtener los datos de los perros");
-        });
-    }
-  });
+
+  try {
+    const rows = await new Promise((resolve, reject) => {
+      db.all(consultaSQL, (err, rows) => {
+        if (err) {
+          console.error(err.message);
+          reject("Error interno del servidor");
+        } else {
+          resolve(rows);
+        }
+      });
+    });
+
+    const razasPorPais = await Promise.all(
+      rows.map(async (row) => {
+        const pais = row.pais_competencia;
+        const response = await fetch(`http://localhost:5000/api/v2/razas/razas-por-pais/${pais}`);
+        const json = await response.json();
+        return { pais, razas: json };
+      })
+    );
+
+    res.json(razasPorPais);
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Error interno del servidor");
+  }
 });
 
 
-/* router.get("/:puntaje", (req, res) => {
-  const puntaje = parseInt(req.params.puntaje);
-  if (isNaN(puntaje) || puntaje < 10 || puntaje > 50 || puntaje % 10 !== 0) {
-    res.status(400).send("El puntaje ingresado no es válido.");
-    return;
-  }
-  const consultaSQL = generarConsultaSQL(puntaje);
-  db.all(consultaSQL, (err, rows) => {
-    if (err) {
-      console.error(err.message);
-      res.status(500).send("Error interno del servidor");
-    } else {
-      res.json(rows);
-    }
-  });
-}); */
-
-
-// Función que devuelve la consulta SQL según el número ingresado
-// function generarConsultaSQL(numero) {
-//   let puntajeCondicion = "";
-//   switch (numero) {
-//     case 10:
-//       puntajeCondicion = "WHERE puntaje = '*'";
-//       break;
-//     case 20:
-//       puntajeCondicion = "WHERE puntaje = '**'";
-//       break;
-//     case 30:
-//       puntajeCondicion = "WHERE puntaje = '***'";
-//       break;
-//     case 40:
-//       puntajeCondicion = "WHERE puntaje = '****'";
-//       break;
-//     case 50:
-//       puntajeCondicion = "WHERE puntaje = '*****'";
-//       break;
-//     default:
-//       break;
-//   }
-//   return `SELECT premio FROM campeonatos ${puntajeCondicion}`;
+// function generarConsultaSQL(puntaje) {
+//   const cantidadAsteriscos = puntaje / 10;
+//   const asteriscos = "*".repeat(cantidadAsteriscos);
+//   return `SELECT pais_competencia FROM campeonatos WHERE puntaje LIKE '${asteriscos}'`;
 // }
 
-// // Endpoint refactorizado con variables más descriptivas
-// router.get("/:puntaje", (req, res) => {
-//   const puntaje = req.params.puntaje;
+// router.get("/puntaje/:puntaje", (req, res) => {
+//   const puntaje = parseInt(req.params.puntaje);
+//   if (isNaN(puntaje) || puntaje < 10 || puntaje > 50 || puntaje % 10 !== 0) {
+//     res.status(400).send("El puntaje ingresado no es válido.");
+//     return;
+//   }
+
+//   const consultaSQL = generarConsultaSQL(puntaje);
+
+//   db.all(consultaSQL, (err, rows) => {
+//     if (err) {
+//       console.error(err.message);
+//       res.status(500).send("Error interno del servidor");
+//     } else {
+//       const paisesCompetencia = rows.map(row => row.pais_competencia);
+//       const pais = paisesCompetencia[0]; // Supongamos que solo tomamos el primer país de la lista
+
+//       axios.get(`http://localhost:5000/api/v2/razas/razas-por-pais/${pais}`)
+//         .then(response => res.json(response.data))
+//         .catch(error => {
+//           console.error(error);
+//           res.status(500).send("Error interno del servidor");
+//         });
+//     }
+//   });
+// });
+
+
+// function generarConsultaSQL(puntaje) {
+//   const cantidadAsteriscos = puntaje / 10; // Dividimos por 10 para obtener la cantidad de asteriscos que se están buscando
+//   const asteriscos = "*".repeat(cantidadAsteriscos); // Creamos una cadena de texto con la cantidad exacta de asteriscos
+//   return `SELECT pais_competencia FROM campeonatos WHERE puntaje LIKE '${asteriscos}'`;
+// }
+
+// router.get("/puntaje/:puntaje", (req, res) => {
+//   const puntaje = parseInt(req.params.puntaje);
+//   if (isNaN(puntaje) || puntaje < 10 || puntaje > 50 || puntaje % 10 !== 0) {
+//     res.status(400).send("El puntaje ingresado no es válido.");
+//     return;
+//   }
+
 //   const consultaSQL = generarConsultaSQL(puntaje);
 
 //   db.all(consultaSQL, (err, rows) => {
@@ -257,6 +179,8 @@ router.get("/:puntaje", (req, res) => {
 //     }
 //   });
 // });
+
+
 
 
 
