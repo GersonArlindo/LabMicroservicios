@@ -67,21 +67,6 @@ convertCSVToJSON(URL_CSV)
     console.error(error);
   });
 
-
-  // convertCSVToJSON(URL_CSV)
-  // .then((json) => { 
-  //   router.get("/razas-por-pais/:pais", (req, res) => {
-  //     const pais = req.params.pais;
-  //     console.log(json)
-  //     const razasPorPais = json.filter((raza) => raza.pais_de_origen === pais);
-  //     logger(`Get razas por pais ${pais}`);
-  //     return res.send(razasPorPais);
-  //   });
-  // })
-  // .catch((error) => {
-  //   console.error(error);
-  // });
-
   convertCSVToJSON(URL_CSV)
   .then((json) => {
     // Si el valor devuelto no es un arreglo, lo conviertes a un arreglo

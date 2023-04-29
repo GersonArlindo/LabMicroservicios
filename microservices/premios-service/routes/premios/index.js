@@ -49,7 +49,7 @@ router.get("/:id", (req, res) => {
       
       // Hacer la solicitud a la API de perros usando el id_campeon
       axios
-        .get(`http://localhost:4000/api/v2/perros/ById/${id_campeon}`)
+        .get(`http://nginx:8080/api/v2/perros/ById/${id_campeon}`)
         .then(response => {
           // Combinando
           const data = {
@@ -107,12 +107,12 @@ router.get("/puntaje/:puntaje", async (req, res) => {
     const razasPorPais = await Promise.all(
       rows.map(async (row) => {
         const pais = row.pais_competencia;
-        const response = await fetch(`http://localhost:5000/api/v2/razas/razas-por-pais/${pais}`);
+        const response = await fetch(`http://nginx:8080/api/v2/razas/razas-por-pais/${pais}`);
         const json = await response.json();
         const razas = json.map(({ raza }) => raza);
         const perrosPorRaza = await Promise.all(
           razas.map(async (raza) => {
-            const response = await fetch(`http://localhost:4000/api/v2/perros/perrosPorRaza/${raza}`);
+            const response = await fetch(`http://nginx:8080/api/v2/perros/perrosPorRaza/${raza}`);
             const json = await response.json();
             return { raza, perros: json };
           })

@@ -52,50 +52,6 @@ router.get("/:pais/:condicion/:valor", (req, res) => {
 });
 
 
-
-
-
-// router.get("/ByPaisPeso/:pais/:peso", (req, res) => {
-//   const pais = req.params.pais;
-//   const peso = req.params.peso;
-  
-//   // Validar el peso
-//   let pesoOperator = "";
-//   let pesoValue = "";
-//   if (peso.includes(">=")) {
-//     pesoOperator = ">=";
-//     pesoValue = peso.replace(">=", "");
-//   } else if (peso.includes("<=")) {
-//     pesoOperator = "<=";
-//     pesoValue = peso.replace("<=", "");
-//   } else if (peso.includes(">")) {
-//     pesoOperator = ">";
-//     pesoValue = peso.replace(">", "");
-//   } else if (peso.includes("<")) {
-//     pesoOperator = "<";
-//     pesoValue = peso.replace("<", "");
-//   } else if (peso.includes("=")) {
-//     pesoOperator = "=";
-//     pesoValue = peso.replace("=", "");
-//   } else {
-//     res.status(400).send("El valor de peso no es válido");
-//     return;
-//   }
-  
-//   // Validar el país
-//   const query = `SELECT * FROM perros WHERE pais_dueno = ? AND peso ${pesoOperator} ?`;
-//   db.all(query, [pais, pesoValue], (err, rows) => {
-//     if (err) {
-//       console.error(err.message);
-//       res.status(500).send("Error interno del servidor");
-//     } else {
-//       res.json(rows);
-//     }
-//   });
-// });
-
-
-
 //GET PERRO BY ID
 router.get("/ById/:id", (req, res) => {
   const id = req.params.id;
