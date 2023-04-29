@@ -94,6 +94,20 @@ router.get("/:id", (req, res) => {
   });
 });
 
+//Ejercicio 4
+// router.get("/paises-por-puntaje/:puntaje", (req, res) => {
+//   const puntaje = req.params.puntaje;
+//   db.all("SELECT DISTINCT pais_competencia FROM campeonatos WHERE puntaje = ?", [puntaje], (err, rows) => {
+//     if (err) {
+//       console.error(err.message);
+//       res.status(500).send("Error interno del servidor");
+//     } else {
+//       res.json(rows);
+//     }
+//   });
+// });
+
+
 // router.get("/:id", (req, res) => {
 //   const id = req.params.id;
 //   const query = "SELECT * FROM campeonatos WHERE id = ?";
@@ -145,7 +159,7 @@ router.get("/:id", (req, res) => {
 
 
 
-
+//Parte ej 4
 function generarConsultaSQL(puntaje) {
   const cantidadAsteriscos = puntaje / 10; // Dividimos por 10 para obtener la cantidad de asteriscos que se están buscando
   const asteriscos = "*".repeat(cantidadAsteriscos); // Creamos una cadena de texto con la cantidad exacta de asteriscos
