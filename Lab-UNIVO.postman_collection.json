@@ -1,0 +1,139 @@
+{
+	"info": {
+		"_postman_id": "ea00928a-cd85-4826-a0d4-7dc826df3151",
+		"name": "Lab-UNIVO",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24708459"
+	},
+	"item": [
+		{
+			"name": "premios",
+			"item": [
+				{
+					"name": "2 - Get AVG premios",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v2/premios/promedio-premios/Segundo",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v2",
+								"premios",
+								"promedio-premios",
+								"Segundo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "4 - Get Premios By Puntaje",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v2/premios/puntaje/50",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v2",
+								"premios",
+								"puntaje",
+								"50"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3 - Get Premios By Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v2/premios/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v2",
+								"premios",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "razas",
+			"item": [
+				{
+					"name": "5 - Get Tipos Frecuentes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v2/razas/tiposFrecuentes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v2",
+								"razas",
+								"tiposFrecuentes"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "perros",
+			"item": [
+				{
+					"name": "1 - Get Perros By pais_duenio and peso",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v2/perros/Mexico/>/10",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v2",
+								"perros",
+								"Mexico",
+								">",
+								"10"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
