@@ -9,68 +9,57 @@ const router = express.Router();
 const logger = (message) => console.log(`Perros Service: ${message}`);
 
 //GET PERROS
-// router.get("/", (req, res) => {
-//   const response = {
-//     service: "perros",
-//     architecture: "microservices",
-//     length: data.length,
-//     data: data,
-//   };
-//   logger("Get perros data");
-//   return res.send(response);
-// });
+router.get("/", (req, res) => {
+  const response = {
+    service: "perros",
+    architecture: "microservices",
+    length: data.length,
+    data: data,
+  };
+  logger("Get perros data");
+  return res.send(response);
+});
 
 //Ejercicio 1
-router.get("/", (req, res) => {
-  const { pais, peso, op } = req.query;
-  if (!pais && !peso) {
-    return res.status(400).send("Se debe proporcionar al menos un filtro");
-  }
-  let query = "SELECT * FROM perros";
-  const params = [];
-  if (pais) {
-    query += " WHERE pais_dueno = ?";
-    params.push(pais);
-  }
-  if (peso) {
-    if (!op) {
-      return res.status(400).send("Se debe proporcionar un operador para el peso");
-    }
-    const pesoNum = parseFloat(peso);
-    if (isNaN(pesoNum)) {
-      return res.status(400).send("El peso debe ser un número válido");
-    }
-    switch (op) {
-      case ">":
-        query += " WHERE peso > ?";
-        break;
-      case "<":
-        query += " WHERE peso < ?";
-        break;
-      case ">=":
-        query += " WHERE peso >= ?";
-        break;
-      case "<=":
-        query += " WHERE peso <= ?";
-        break;
-      case "=":
-        query += " WHERE peso = ?";
-        break;
-      default:
-        return res.status(400).send("El operador proporcionado no es válido");
-    }
-    params.push(pesoNum);
-  }
+// router.get("/ByPaisPeso/:pais/:peso", (req, res) => {
+//   const pais = req.params.pais;
+//   const peso = req.params.peso;
+  
+//   // Validar el peso
+//   let pesoOperator = "";
+//   let pesoValue = "";
+//   if (peso.includes(">=")) {
+//     pesoOperator = ">=";
+//     pesoValue = peso.replace(">=", "");
+//   } else if (peso.includes("<=")) {
+//     pesoOperator = "<=";
+//     pesoValue = peso.replace("<=", "");
+//   } else if (peso.includes(">")) {
+//     pesoOperator = ">";
+//     pesoValue = peso.replace(">", "");
+//   } else if (peso.includes("<")) {
+//     pesoOperator = "<";
+//     pesoValue = peso.replace("<", "");
+//   } else if (peso.includes("=")) {
+//     pesoOperator = "=";
+//     pesoValue = peso.replace("=", "");
+//   } else {
+//     res.status(400).send("El valor de peso no es válido");
+//     return;
+//   }
+  
+//   // Validar el país
+//   const query = `SELECT * FROM perros WHERE pais_dueno = ? AND peso ${pesoOperator} ?`;
+//   db.all(query, [pais, pesoValue], (err, rows) => {
+//     if (err) {
+//       console.error(err.message);
+//       res.status(500).send("Error interno del servidor");
+//     } else {
+//       res.json(rows);
+//     }
+//   });
+// });
 
-  db.all(query, params, (err, rows) => {
-    if (err) {
-      console.error(err.message);
-      res.status(500).send("Error interno del servidor");
-    } else {
-      res.json(rows);
-    }
-  });
-});
 
 
 //GET PERRO BY ID
